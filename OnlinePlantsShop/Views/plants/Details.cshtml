@@ -1,0 +1,66 @@
+﻿@using System.Linq
+
+<div class="container mt-4">
+    <h2>Plant Details <span class="leaf">🌿</span></h2>
+
+    <div class="row">
+     
+        <div class="col-md-5">
+            <div class="card mb-4">
+                <img src="@Model.ImageUrl" class="card-img-top" alt="@Model.Name" style="height: 300px; object-fit: cover; border-radius: 12px 12px 0 0;">
+                <div class="card-body">
+                    <h4 class="card-title">@Model.Name</h4>
+                    <p class="price">$@Model.Price</p>
+                    <p><strong>Description:</strong> @Model.Description</p>
+
+                    <a href="/Plants/Index" class="btn btn-secondary">Back to Browse</a>
+                </div>
+            </div>
+        </div>
+
+      
+        <div class="col-md-7">
+            <h3>Reviews <span class="leaf">🌿</span></h3>
+            <div class="reviews mb-4" style="max-height: 400px; overflow-y: auto;">
+                @if (Model.Reviews != null && Model.Reviews.Count > 0)
+
+                {
+                    foreach (var review in Model.Reviews)
+                    {
+                        <div class="review">
+                            <p><span class="leaf-icon">🍃</span><strong>@review.UserName</strong> <span class="rating">(@review.Rating/5)</span></p>
+                            <p>@review.Comment</p>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p>No reviews yet. Be the first to review this plant!</p>
+                }
+            </div>
+
+            <h4>Write a Review <span class="leaf">🌿</span></h4>
+            <form method="post" asp-action="SubmitReview" asp-route-id="@Model.Id">
+                <div class="mb-3">
+                    <label for="userName">Your Name</label>
+                    <input type="text" class="form-control" id="userName" name="userName" required />
+                </div>
+                <div class="mb-3">
+                    <label for="rating">Rating</label>
+                    <select class="form-select" id="rating" name="rating" required>
+                        <option value="1">1 - Poor</option>
+                        <option value="2">2 - Fair</option>
+                        <option value="3">3 - Good</option>
+                        <option value="4">4 - Very Good</option>
+                        <option value="5">5 - Excellent</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="comment">Your Comment</label>
+                    <textarea class="form-control" id="comment" name="comment" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Review</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+﻿@page
+@model OnlinePlantsShop.Areas.Identity.Pages.Account.RegisterConfirmationModel
+@{
+	ViewData["Title"] = "Register Confirmation";
+}
+
+<h2>Thank you for registering!</h2>
+<p>
+    A confirmation email has been sent to <strong>@Model.Email</strong>.
+    Please check your email to confirm your account.
+</p>
+
+<!-- Add this Login button/link -->
+<div class="mt-3">
+    <a asp-page="./Login" class="btn btn-primary">Go to Login</a>
+</div>

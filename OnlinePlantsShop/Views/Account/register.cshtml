@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Register";
+}
+<h2>🌿Register🌿</h2>
+
+<form method="post" action="/Account/Register">
+    <input type="text" name="Username" class="form-control" placeholder="Enter Username" required />
+    <input type="password" name="Password" class="form-control" placeholder="Enter Password" required />
+
+    <label for="Role">Select Role:</label>
+    <select name="Role" class="form-control">
+        <option value="User">User</option>
+        <option value="Admin">Admin</option>
+    </select>
+
+    
+    <button type="submit" class="btn" style="background-color: green; color:black;">Register</button>
+</form>
+
+

@@ -1,0 +1,33 @@
+﻿@model OnlinePlantsShop_.Models.Plant
+
+@{
+    ViewBag.Title = "Add Plant";
+}
+<h2>Add New Plant 🌿</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label>Name</label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Image URL</label>
+        <input asp-for="ImageUrl" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Price</label>
+        <input asp-for="Price" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label>Type</label>
+        <input asp-for="Type" class="form-control" />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-success">Add</button>
+    <a asp-action="ManagePlants" class="btn btn-secondary">Cancel</a>
+</form>
+

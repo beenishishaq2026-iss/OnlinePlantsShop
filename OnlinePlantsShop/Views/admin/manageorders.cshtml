@@ -1,0 +1,30 @@
+﻿@model IEnumerable<OnlinePlantsShop_.Models.OrderViewModel>
+
+@{
+    ViewBag.Title = "Manage Orders";
+}
+
+<h2>Manage Orders</h2>
+<p>View and update customer orders.</p>
+
+<table class="table table-striped table-bordered">
+    <thead class="table-success">
+        <tr>
+            <th>Order ID</th>
+            <th>🌿 Plant Names</th>
+            <th>Delivery Address</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.OrderId</td>
+                <td>🌿 @order.PlantNames</td>
+                <td>@order.Address</td>
+                <td>@order.OrderStatus</td>
+            </tr>
+        }
+    </tbody>
+</table>

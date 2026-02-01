@@ -1,0 +1,24 @@
+﻿@model OnlinePlantsShop_.Models.Plant
+
+@{
+    ViewBag.Title = "Delete Plant";
+}
+<h2>Delete Plant </h2>
+
+<h4>Are you sure you want to delete this plant?</h4>
+<div>
+    <strong>Name:</strong> @Model.Name<br />
+    <strong>Price:</strong> @Model.Price<br />
+    <strong>Type:</strong> @Model.Type<br />
+</div>
+
+<form asp-action="Delete" method="post">
+
+
+    <input type="hidden" asp-for="Id" />
+    <br />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="ManagePlants" class="btn btn-secondary">Cancel</a>
+</form>
+
+

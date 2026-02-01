@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Order Confirmation";
+}
+@{
+    ViewData["Title"] = "Order Confirmation";
+    var orderId = ViewBag.OrderId ?? 0;  // <-- Add it here
+}
+
+<style>
+    .order-confirmation-container {
+        background-color: #e6f4ea;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        margin-top: 50px;
+    }
+
+    .leaf-icon {
+        font-size: 50px;
+        color: #4CAF50;
+    }
+
+    .btn-space {
+        margin-right: 10px;
+    }
+</style>
+
+<div class="container">
+    <div class="order-confirmation-container text-center">
+        <div class="leaf-icon mb-3">
+            🌿
+        </div>
+
+        <h2 class="text-success">Thank you for your order!</h2>
+        <p>Your order has been placed successfully and is now being processed.</p>
+
+        <div class="mt-4">
+            <a asp-controller="Home" asp-action="Index" class="btn btn-success btn-space">Back to Home</a>
+            <a asp-controller="Orders" asp-action="Edit" asp-route-id="@orderId" class="btn btn-warning btn-space">Edit Order</a>
+            <a asp-controller="Orders" asp-action="Delete" asp-route-id="@orderId" class="btn btn-danger">Delete Order</a>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using OnlinePlantsShop.Models
+@inject SignInManager<appuser> SignInManager
+@inject UserManager<appuser> UserManager
+
+@{
+    var currentPage = ViewContext.RouteData.Values["Page"]?.ToString();
+    var currentController = ViewContext.RouteData.Values["Controller"]?.ToString();
+    var currentAction = ViewContext.RouteData.Values["Action"]?.ToString();
+
+    
+    bool showAuthButtons = currentController == "Home" && currentAction == "Index"
+                        || currentPage == "/Account/Login"
+                        || currentPage == "/Account/Register";
+}
+
+<ul class="navbar-nav">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
+        </li>
+        <li class="nav-item">
+            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+            </form>
+        </li>
+    }
+    else if (showAuthButtons)
+    {
+        @* Show Register unless we're already on the Register page *@
+        @if (currentPage != "/Account/Register")
+        {
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
+            </li>
+        }
+
+        @* Show Login unless we're already on the Login page *@
+        @if (currentPage != "/Account/Login")
+        {
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+            </li>
+        }
+    }
+</ul>

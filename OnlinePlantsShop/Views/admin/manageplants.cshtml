@@ -1,0 +1,49 @@
+﻿@model IEnumerable<OnlinePlantsShop_.Models.Plant>
+@{
+    ViewBag.Title = "Manage Plants";
+}
+<h2>Manage Plants 🌿</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var plant in Model)
+        {
+            <tr>
+                <td>@plant.Name</td>
+                <td>@plant.Price</td>
+                <td>
+                    <a class="btn btn-success btn-sm" href="/Admin/Create">Add</a>
+                    <a class="btn btn-warning btn-sm" href="/Admin/Edit/@plant.Id">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="/Admin/Delete/@plant.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+
+    <script>
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("/planthub")
+            .build();
+
+        connection.on("ReceivePlantNotification", function (message) {
+            alert(message); 
+        });
+
+        connection.start().catch(function (err) {
+            return console.error(err.toString());
+        });
+    </script>
+}
+

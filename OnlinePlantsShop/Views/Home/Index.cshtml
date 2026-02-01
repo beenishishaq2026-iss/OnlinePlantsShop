@@ -1,0 +1,92 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        .banner {
+            text-align: center;
+            padding: 50px;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .gallery img {
+            width: 250px;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+
+        .navbar-custom {
+            background-color: #2E8B57;
+        }
+
+        .navbar-custom .nav-link, .navbar-custom .navbar-brand {
+            color: white;
+        }
+
+        .navbar-custom .nav-link:hover {
+            color: #FFD700;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="/">Online Plant Shop</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Plants/Index">Browse Plants</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/About">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/Contact">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+  
+    <div class="banner">
+        <h1>🌿Welcome to Online Plant Shop🌿</h1>
+        <p>Browse & Order Your Favorite Plants Online</p>
+    </div>
+
+    <div class="container">
+        <h2 class="text-center mt-4">Our Featured Plants</h2>
+        <div class="gallery">
+            <img src="https://images.pexels.com/photos/1072824/pexels-photo-1072824.jpeg" alt="Indoor Plant">
+            <img src="https://images.pexels.com/photos/2123482/pexels-photo-2123482.jpeg" alt="Bonsai Plant">
+            <img src="https://images.pexels.com/photos/2563121/pexels-photo-2563121.jpeg" alt="Succulent Plant">
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

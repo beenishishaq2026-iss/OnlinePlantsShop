@@ -1,0 +1,42 @@
+﻿@model List<OnlinePlantsShop_.Models.Plant>
+
+@{
+    ViewBag.Title = "Browse Plants";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container py-5">
+    <h2 class="text-center text-success fw-bold mb-4">
+        🌿 Welcome to Our Plants Gallery 🌿
+    </h2>
+    <h4 class="text-center text-muted mb-5">
+        Discover nature's beauty — choose your favorite!
+    </h4>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach (var plant in Model)
+        {
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="@Url.Content(plant.ImageUrl)" class="card-img-top" alt="@plant.Name" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title text-success">@plant.Name</h5>
+                        <p class="card-text">@plant.Description</p>
+                        <p class="text-muted">Type: @plant.Type</p>
+                        <p class="text-primary fw-bold">Price: $@plant.Price</p>
+                    </div>
+                    <div class="card-footer text-center bg-white border-top-0 d-flex justify-content-around">
+                        <a href="@Url.Action("Details", "Plants", new { id = plant.Id })" class="btn btn-outline-success">
+                            💬 Comments & Rating
+                        </a>
+                        <a href="@Url.Action("PlaceOrder", "Orders", new { plantId = plant.Id })" class="btn btn-outline-primary">
+                            🛒 Order
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

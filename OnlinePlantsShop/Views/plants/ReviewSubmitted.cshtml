@@ -1,0 +1,89 @@
+﻿@{
+    ViewBag.Title = "Review Submitted";
+}
+
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: #f7fff7;
+        color: #2c3e50;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: auto;
+        padding: 2rem;
+        background: #eaffea;
+        border-radius: 12px;
+        box-shadow: 0 6px 12px rgba(144, 238, 144, 0.3);
+        text-align: center;
+    }
+
+    h2 {
+        color: #3a6b35;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        color: #2e7d32;
+    }
+
+    .btn-primary {
+        background-color: lightgreen;
+        color: black;
+        font-weight: 700;
+        padding: 0.6rem 2rem;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        text-decoration: none;
+    }
+
+        .btn-primary:hover {
+            background-color: #76c776;
+            color: black;
+            text-decoration: none;
+        }
+
+    .leaf {
+        font-size: 1.5rem;
+        margin: 0 8px;
+        vertical-align: middle;
+        color: #4caf50;
+    }
+
+    .leaf-border {
+        display: flex;
+        justify-content: center;
+        margin: 1rem 0;
+        font-size: 1.5rem;
+        color: #4caf50;
+    }
+</style>
+
+<div class="container">
+    <div class="leaf-border">
+        <span class="leaf">🍃</span>
+        <span class="leaf">🍃</span>
+        <span class="leaf">🍃</span>
+        <span class="leaf">🍃</span>
+        <span class="leaf">🍃</span>
+    </div>
+
+    <h2>Thank you for your review! <span class="leaf">🌿</span></h2>
+    <p>Your review has been submitted successfully.</p>
+
+    <a href="/Plants/Index" class="btn btn-primary">Back to Browse</a>
+
+    <div class="leaf-border" style="margin-top: 2rem;">
+        <span class="leaf">🍃</span>
+        <span class="leaf">🍃</span>
+        <span class="leaf">🍃</span>
+        <span class="leaf">🍃</span>
+        <span class="leaf">🍃</span>
+    </div>
+</div>
